@@ -12,11 +12,11 @@ O Processador de Arquivos é uma ferramenta desenvolvida para ajudar na limpeza 
 
 1. Clone o repositório:
     ```sh
-    git clone https://github.com/seu-usuario/processador-de-arquivos.git
+    git clone https://github.com/seu-usuario/OrganizadorDeProdutos.git
     ```
 2. Navegue até o diretório do projeto:
     ```sh
-    cd processador-de-arquivos
+    cd OrganizadorDeProdutos
     ```
 3. Instale as dependências (requer Python instalado):
     ```sh
