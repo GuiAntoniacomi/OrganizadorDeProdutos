@@ -35,17 +35,17 @@ O Processador de Arquivos é uma ferramenta desenvolvida para ajudar na limpeza 
 1. **Abra o Processador de Arquivos**:
     - Execute o script Python:
     ```sh
-    python processador.py
+    python gerador_tabela.py
     ```
-    - Ou use o executável se disponível (`processador.exe`).
+    - Ou use o executável se disponível (`gerador_tabela.exe`).
 
 2. **Selecione o Arquivo JSON**:
-    - Clique no botão "Browse" ao lado do campo "Selecione o arquivo JSON".
+    - Clique no botão "Procurar" ao lado do campo "Selecione o arquivo JSON".
     - Navegue até o local onde o arquivo JSON está armazenado.
     - Selecione o arquivo JSON e clique em "Abrir".
 
 3. **Selecione o Arquivo Excel**:
-    - Clique no botão "Browse" ao lado do campo "Selecione o arquivo Excel".
+    - Clique no botão "Procurar" ao lado do campo "Selecione o arquivo Excel".
     - Navegue até o local onde o arquivo Excel está armazenado.
     - Selecione o arquivo Excel e clique em "Abrir".
 
