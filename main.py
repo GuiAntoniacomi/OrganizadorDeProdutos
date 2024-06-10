@@ -48,9 +48,6 @@ def clean_and_map_categories(df):
 
     return df
 
-def add_datas():
-    pass
-
 def process_files(json_file, excel_file):
     # Carregar o arquivo JSON
     arquivo = pd.read_json(json_file)
@@ -128,7 +125,7 @@ def run_process():
         messagebox.showwarning("Aviso", "Por favor, selecione ambos os arquivos JSON e Excel.")
 
 window = Tk()
-
+window.title("Ferramenta de Processamento de Dados")
 window.geometry("700x400")
 window.configure(bg = "#ffffff")
 canvas = Canvas(
