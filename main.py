@@ -81,10 +81,7 @@ def process_files(json_file, excel_file):
         df_bling = pd.read_excel(bling)
         df_categoria['Código'] = df_categoria['Código'].astype(int)
         df_bling = pd.read_excel(bling)
-        df_bling = df_bling[[
-            'Código',
-            'Data última venda antes de 07/06/2024',
-            'Data última compra antes de 07/06/2024']]
+        df_bling = df_bling.iloc[:, [0, 5, 6]]  # Seleciona as colunas 0, 5 e 6
         df_categoria = df_categoria.merge(df_bling, how='left', on='Código')
     else:
         pass
