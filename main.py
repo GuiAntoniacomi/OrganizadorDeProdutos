@@ -76,7 +76,7 @@ def process_files(json_file, excel_file):
     new_sheet_name = "Base - Ordem de Estoque"
 
     # Conferir se existe tabela do Bling
-    bling = bling_file_entry.get()
+    bling = entry_bling.get()
     if bling:
         df_bling = pd.read_excel(bling)
         df_categoria['Código'] = df_categoria['Código'].astype(int)
@@ -95,24 +95,24 @@ def process_files(json_file, excel_file):
 def select_json_file():
     file_path = filedialog.askopenfilename(filetypes=[("JSON files", "*.json")])
     if file_path:
-        json_file_entry.delete(0, tk.END)
-        json_file_entry.insert(0, file_path)
-
-def select_excel_file():
-    file_path = filedialog.askopenfilename(filetypes=[("Excel files", "*.xlsx")])
-    if file_path:
-        excel_file_entry.delete(0, tk.END)
-        excel_file_entry.insert(0, file_path)
+        entry_json.delete(0, tk.END)
+        entry_json.insert(0, file_path)
 
 def select_bling_file():
     file_path = filedialog.askopenfilename(filetypes=[("Excel files", "*.xlsx")])
     if file_path:
-        bling_file_entry.delete(0, tk.END)
-        bling_file_entry.insert(0, file_path)
+        entry_bling.delete(0, tk.END)
+        entry_bling.insert(0, file_path)
+
+def select_excel_file():
+    file_path = filedialog.askopenfilename(filetypes=[("Excel files", "*.xlsx")])
+    if file_path:
+        entry_excel.delete(0, tk.END)
+        entry_excel.insert(0, file_path)
 
 def run_process():
-    json_file = json_file_entry.get()
-    excel_file = excel_file_entry.get()
+    json_file = entry_json.get()
+    excel_file = entry_excel.get()
     if json_file and excel_file:
         try:
             process_files(json_file, excel_file)
@@ -123,144 +123,122 @@ def run_process():
 
 window = Tk()
 window.title("Ferramenta de Processamento de Dados")
-window.geometry("700x400")
+window.geometry("1368x760")
 window.configure(bg = "#ffffff")
 canvas = Canvas(
     window,
     bg = "#ffffff",
-    height = 400,
-    width = 700,
+    height = 760,
+    width = 1368,
     bd = 0,
     highlightthickness = 0,
     relief = "ridge")
 canvas.place(x = 0, y = 0)
 
-background_img = PhotoImage(file=resource_path("FrontEnd/background.png"))
+background_img = PhotoImage(file = f"FrontEnd/background.png")
 background = canvas.create_image(
-    363.0, 200.0,
+    710.5, 380.5,
     image=background_img)
 
-img0 = PhotoImage(file=resource_path("FrontEnd/img0.png"))
-b0 = Button(
+img0 = PhotoImage(file = f"FrontEnd/img0.png")
+btn_gerar = Button(
     image = img0,
     borderwidth = 0,
     highlightthickness = 0,
-    bg = '#2E2E2E',
-    command = select_json_file,
-    relief = "groove")
-
-b0.place(
-    x = 613, y = 143,
-    width = 66,
-    height = 20)
-
-entry0_img = PhotoImage(file=resource_path("FrontEnd/img_textBox0.png"))
-entry0_bg = canvas.create_image(
-    496.0, 153.0,
-    image = entry0_img)
-
-entry0 = Entry(
-    bd = 0,
-    bg = "#f0f0f0",
-    highlightthickness = 0)
-
-entry0.place(
-    x = 390, y = 143,
-    width = 212,
-    height = 18)
-
-json_file_entry = tk.Entry(window, width=50)
-
-json_file_entry.place(
-    x = 390, y = 143,
-    width = 212,
-    height = 18)
-
-img1 = PhotoImage(file=resource_path("FrontEnd/img1.png"))
-b1 = Button(
-    image = img1,
-    borderwidth = 0,
-    highlightthickness = 0,
-    bg = '#2E2E2E',
-    command = select_bling_file,
-    relief = "flat")
-
-b1.place(
-    x = 613, y = 200,
-    width = 66,
-    height = 20)
-
-entry1_img = PhotoImage(file=resource_path("FrontEnd/img_textBox1.png"))
-entry1_bg = canvas.create_image(
-    496.0, 210.0,
-    image = entry1_img)
-
-entry1 = Entry(
-    bd = 0,
-    bg = "#f0f0f0",
-    highlightthickness = 0)
-
-entry1.place(
-    x = 390, y = 200,
-    width = 212,
-    height = 18)
-
-bling_file_entry = tk.Entry(window, width=50)
-
-bling_file_entry.place(
-    x = 390, y = 200,
-    width = 212,
-    height = 18)
-
-img2 = PhotoImage(file=resource_path("FrontEnd/img2.png"))
-b2 = Button(
-    image = img2,
-    borderwidth = 0,
-    highlightthickness = 0,
-    bg = '#2E2E2E',
-    command = select_excel_file,
-    relief = "flat")
-
-b2.place(
-    x = 613, y = 257,
-    width = 66,
-    height = 20)
-
-entry2_img = PhotoImage(file=resource_path("FrontEnd/img_textBox2.png"))
-entry2_bg = canvas.create_image(
-    496.0, 267.0,
-    image = entry2_img)
-
-entry2 = Entry(
-    bd = 0,
-    bg = "#f0f0f0",
-    highlightthickness = 0)
-
-entry2.place(
-    x = 390, y = 257,
-    width = 212,
-    height = 18)
-
-excel_file_entry = tk.Entry(window, width=50)
-
-excel_file_entry.place(
-    x = 390, y = 257,
-    width = 212,
-    height = 18)
-
-img3 = PhotoImage(file=resource_path("FrontEnd/img3.png"))
-b3 = Button(
-    image = img3,
-    borderwidth = 0,
-    highlightthickness = 0,
-    bg = '#2E2E2E',
     command = run_process,
     relief = "flat")
 
-b3.place(
-    x = 436, y = 316,
-    width = 98,
-    height = 37)
+btn_gerar.place(
+    x = 978, y = 644,
+    width = 128,
+    height = 53)
+
+# Arquivo Json
+img_json = PhotoImage(file = f"FrontEnd/img3.png")
+b_json = Button(
+    image = img_json,
+    borderwidth = 0,
+    highlightthickness = 0,
+    command = select_json_file,
+    relief = "flat")
+
+b_json.place(
+    x = 1181, y = 297,
+    width = 116,
+    height = 35)
+
+entry_json_img = PhotoImage(file = f"FrontEnd/img_textBox2.png")
+entry2_json_bg = canvas.create_image(
+    974.0, 314.5,
+    image = entry_json_img)
+
+entry_json = Entry(
+    bd = 0,
+    bg = "#f0f0f0",
+    highlightthickness = 0)
+
+entry_json.place(
+    x = 786, y = 297,
+    width = 376,
+    height = 33)
+
+# Arquvo Bling
+img_bling = PhotoImage(file = f"FrontEnd/img2.png")
+b_bling = Button(
+    image = img_bling,
+    borderwidth = 0,
+    highlightthickness = 0,
+    command = select_bling_file,
+    relief = "flat")
+
+b_bling.place(
+    x = 1181, y = 405,
+    width = 117,
+    height = 33)
+
+entry_bling_img = PhotoImage(file = f"FrontEnd/img_textBox1.png")
+entry1_bling_bg = canvas.create_image(
+    974.5, 422.0,
+    image = entry_bling_img)
+
+entry_bling = Entry(
+    bd = 0,
+    bg = "#f0f0f0",
+    highlightthickness = 0)
+
+entry_bling.place(
+    x = 786, y = 405,
+    width = 377,
+    height = 32)
+
+# Arquivo Excel
+img_excel = PhotoImage(file = f"FrontEnd/img1.png")
+b_excel = Button(
+    image = img_excel,
+    borderwidth = 0,
+    highlightthickness = 0,
+    command = select_excel_file,
+    relief = "flat")
+
+b_excel.place(
+    x = 1182, y = 512,
+    width = 117,
+    height = 35)
+
+entry_excel_img = PhotoImage(file = f"FrontEnd/img_textBox0.png")
+entry_excel_bg = canvas.create_image(
+    974.5, 529.5,
+    image = entry_excel_img)
+
+entry_excel = Entry(
+    bd = 0,
+    bg = "#f0f0f0",
+    highlightthickness = 0)
+
+entry_excel.place(
+    x = 786, y = 512,
+    width = 377,
+    height = 33)
 
 window.resizable(False, False)
 window.mainloop()
