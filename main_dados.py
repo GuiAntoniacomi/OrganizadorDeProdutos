@@ -135,7 +135,7 @@ canvas = Canvas(
     relief = "ridge")
 canvas.place(x = 0, y = 0)
 
-background_img = PhotoImage(file = f"FrontEnd/fundo.png")
+background_img = PhotoImage(file = f"FrontEnd/background.png")
 background = canvas.create_image(
     710.5, 380.5,
     image=background_img)
