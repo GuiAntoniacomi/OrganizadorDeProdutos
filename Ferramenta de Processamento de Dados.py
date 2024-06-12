@@ -135,7 +135,7 @@ canvas = Canvas(
     relief = "ridge")
 canvas.place(x = 0, y = 0)
 
-background_img = PhotoImage(file = f"FrontEnd/background.png")
+background_img = PhotoImage(file = f"FrontEnd/fundo.png")
 background = canvas.create_image(
     710.5, 380.5,
     image=background_img)
@@ -145,6 +145,7 @@ btn_gerar = Button(
     image = img0,
     borderwidth = 0,
     highlightthickness = 0,
+    bg = '#2E2E2E',
     command = run_process,
     relief = "flat")
 
@@ -159,6 +160,7 @@ b_json = Button(
     image = img_json,
     borderwidth = 0,
     highlightthickness = 0,
+    bg = '#2E2E2E',
     command = select_json_file,
     relief = "flat")
 
@@ -188,6 +190,7 @@ b_bling = Button(
     image = img_bling,
     borderwidth = 0,
     highlightthickness = 0,
+    bg = '#2E2E2E',
     command = select_bling_file,
     relief = "flat")
 
@@ -217,6 +220,7 @@ b_excel = Button(
     image = img_excel,
     borderwidth = 0,
     highlightthickness = 0,
+    bg = '#2E2E2E',
     command = select_excel_file,
     relief = "flat")
 
